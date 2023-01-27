@@ -19,7 +19,6 @@ test('first step of registration', async ({page}) => {
     await page.fill(personalData.passwordInput, '12365');
     await page.locator(personalData.pinInput).fill('4567');
 
-
     await page.locator(personalData.salutationInput).selectOption({label: 'Mrs.'});
     await page.locator(personalData.firstNameInput).type('Jose');
     await page.locator(personalData.lastNameInput).type('Nunez');
