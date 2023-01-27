@@ -1,6 +1,6 @@
 export class UserTestData {
     constructor() {
-        this.salutation = "HERR"
+        this.salutation = "Mrs."
         this.firstName = "jose"
         this.lastName = "nunez"
         this.dayOfBirthday = "1"
