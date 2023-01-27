@@ -17,13 +17,14 @@ export class UserTestData {
     }
 
     getRandomPhoneNumber() {
-        const currentTime = Date.now()
-        return `${parseInt(currentTime/100)}`
+        return `${parseInt(this.getCurrentTime() / 100)}`
     }
 
     getRandomEmail() {
-        const currentTime = Date.now()
-        return `josenunezumi+${currentTime}@gmail.com`
+        return `josenunezumi+${this.getCurrentTime()}@gmail.rofl`
     }
 
+    getCurrentTime() {
+        return Date.now()
+    }
 }
