@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test');
-const { PersonalDataPage } = require('./pages/PersonalDataPage');
-import { HomePage } from './pages/HomePage';
+const {test, expect} = require('@playwright/test');
+const {PersonalDataPage} = require('./pages/PersonalDataPage');
+const {HomePage} = require('./pages/HomePage');
 
 const {UserTestData} = require("../utils/UsertestData");
 
