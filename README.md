@@ -1,8 +1,11 @@
 # Playwright example project
 
 example frontend automation project with Playwright in JS
+### before starting
+1 `npm install`
 
-### How to run?
+2 `npx playwright install `
+### Run tests
 #### 1. example - page object pattern only for selectors
 `npx playwright test shareNowPomExample.spec.js`
 

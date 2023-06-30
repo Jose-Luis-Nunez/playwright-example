@@ -33,7 +33,6 @@ test('First step of registration', async ({page}) => {
     const termsAndConditionsCheckbox = await page.locator(personalData.registrationCheckboxes).nth(0);
     await termsAndConditionsCheckbox.click({force: true});
 
-    await page.click(personalData.registrationButton);
-
-    await expect(page).toHaveURL(/payment/);
+    await page.locator(personalData.registrationButton).click({waitNavigation: true});
+    await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/");
 });

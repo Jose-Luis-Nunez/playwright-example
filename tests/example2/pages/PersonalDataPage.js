@@ -44,7 +44,7 @@ exports.PersonalDataPage = class PersonalDataPage {
     }
 
     async createAccount() {
-        await this.registrationButton.click()
+        await this.registrationButton.click({waitNavigation: true})
     }
 
     async acceptGlobalTerms() {

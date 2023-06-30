@@ -17,5 +17,4 @@ test('first step of registration', async ({page}) => {
     await personalDataPage.acceptGlobalTerms()
     await personalDataPage.createAccount()
 
-    await expect(page).toHaveURL(/payment/);
-});
+    await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/");});
