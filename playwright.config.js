@@ -19,7 +19,7 @@ const config = {
   reporter: 'html',
   use: {
     actionTimeout: 0,
-    headless: true,
+    headless: false,
     trace: 'on-first-retry',
   },
 
