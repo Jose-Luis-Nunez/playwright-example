@@ -33,10 +33,9 @@ jobs:
             ${{ runner.os }}-ms-playwright-
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Install Playwright Chrome Browser
-        run: npx playwright install chrome
+        run: |
+          npm ci
+          npx playwright install chrome
 
       - name: Run Playwright tests
         run: npx playwright test
@@ -48,4 +47,3 @@ jobs:
           path: |
             test-results/**/*
           retention-days: 30
-
