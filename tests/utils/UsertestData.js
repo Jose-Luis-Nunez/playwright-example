@@ -1,4 +1,4 @@
-export class UserTestData {
+class UserTestData {
     constructor() {
         this.salutation = "Mrs."
         this.firstName = "jose"
@@ -28,3 +28,4 @@ export class UserTestData {
         return Date.now()
     }
 }
+module.exports = { UserTestData };

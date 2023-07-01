@@ -1,5 +1,5 @@
-import {UserTestData} from "../utils/UserTestData.js";
-import {expect, test} from '@playwright/test';
+const { UserTestData } = require("../utils/UserTestData");
+import { expect, test } from '@playwright/test';
 import PersonalDataPage from './pages/PersonalDataPage.js';
 import HomePage from "./pages/HomePage.js";
 
