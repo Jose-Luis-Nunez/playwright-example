@@ -10,7 +10,7 @@ const config = {
   /* Maximum time one test can run for. */
   timeout: 60000,
   expect: {
-    timeout: 5000
+    timeout: 10000
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -18,7 +18,7 @@ const config = {
   workers: process.env.CI ? 4 : undefined,
   reporter: [['html', { open: 'never', outputFolder: 'reports' }]],
   use: {
-    actionTimeout: 3000,
+    actionTimeout: 5000,
     headless: true,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',

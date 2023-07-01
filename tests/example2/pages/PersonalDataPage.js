@@ -45,7 +45,7 @@ class PersonalDataPage {
     }
 
     async createAccount() {
-        await this.registrationButton.click({waitNavigation: true})
+        await this.registrationButton.click({ waitNavigation: true })
     }
 
     async acceptGlobalTerms() {
