@@ -9,7 +9,7 @@ test('first step of registration', async ({page}) => {
     const homePage = new HomePage(page);
 
     await page.goto('https://www.int.share-now.com/de/en/');
-    // await homePage.acceptCookies();
+    await homePage.acceptCookies();
     await homePage.startRegistration();
 
     await personalDataPage.selectCityForRegistration('berlin');
