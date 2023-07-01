@@ -1,5 +1,5 @@
 # Playwright example project
-![master](https://github.com/Jose-Luis-Nunez/playwright-examples/actions/workflows/run_tests.yml/badge.svg?branch=master)
+![master](https://github.com/Jose-Luis-Nunez/playwright-example/actions/workflows/run_tests.yml/badge.svg?branch=master)
 
 example frontend automation project with Playwright in JS
 ### before starting
