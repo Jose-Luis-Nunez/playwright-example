@@ -9,7 +9,7 @@ test('First step of registration', async ({page}) => {
     const homePage = new HomePage();
 
     await page.goto(homePage.pageURL);
-    await page.locator(homePage.acceptCookies).click();
+    //await page.locator(homePage.acceptCookies).click();
     await page.locator(homePage.signUpButton).click();
 
     await page.locator(personalData.drivingLocation).selectOption('berlin');
