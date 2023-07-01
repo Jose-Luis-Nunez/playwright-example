@@ -1,4 +1,4 @@
-exports.PersonalDataPage = class PersonalDataPage {
+class PersonalDataPage {
     constructor(page) {
         this.page = page;
     }
@@ -22,6 +22,7 @@ exports.PersonalDataPage = class PersonalDataPage {
     registrationButton = () => this.page.locator('#registration-save-button');
 
     async selectCityForRegistration(city) {
+        await this.page.waitForNavigation()
         await this.drivingLocation().selectOption(city)
         await this.page.waitForLoadState('networkidle');
     }
@@ -44,11 +45,13 @@ exports.PersonalDataPage = class PersonalDataPage {
     }
 
     async createAccount() {
-        await this.registrationButton().click()
+        await this.registrationButton().click({ waitNavigation: true })
     }
 
     async acceptGlobalTerms() {
         const termsAndConditionsCheckbox = await this.registrationCheckboxes().nth(0);
-        await termsAndConditionsCheckbox.click({force: true});
+        await termsAndConditionsCheckbox.click({ force: true });
     }
 }
+
+export default PersonalDataPage;
