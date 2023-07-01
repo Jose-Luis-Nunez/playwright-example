@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 import PersonalDataPage from './pages/PersonalDataPage.js';
 import HomePage from "./pages/HomePage.js";
 
-test.skip('First step of registration', async ({page}) => {
+test('First step of registration', async ({page}) => {
     const testUser = new UserTestData();
     const personalData = new PersonalDataPage();
     const homePage = new HomePage();
