@@ -1,4 +1,4 @@
-const {test, expect} = require('@playwright/test');
+const { test, expect} = require('@playwright/test');
 import HomePage from "./pages/HomePage.js";
 import PersonalDataPage from './pages/PersonalDataPage.js';
 import UserTestData from "../utils/UsertestData";
