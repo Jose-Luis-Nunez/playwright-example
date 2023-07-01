@@ -18,9 +18,10 @@ const config = {
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    actionTimeout: 0,
+    actionTimeout: 3000,
     headless: true,
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
   },
 
   projects: [
@@ -28,6 +29,10 @@ const config = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        browserName: 'chromium',
+        ignoreHTTPSErrors: true,
+        headless: true,
+        args: ["--enable-features=ShadowDOMV0"],
       },
     },
   ],
