@@ -1,7 +1,7 @@
-import {UserTestData} from "../utils/UserTestData";
+import {UserTestData} from "../utils/UserTestData.js";
 import {expect, test} from '@playwright/test';
-import PersonalDataPage from './pages/PersonalDataPage';
-import HomePage from "./pages/HomePage";
+import PersonalDataPage from './pages/PersonalDataPage.js';
+import HomePage from "./pages/HomePage.js";
 
 test('First step of registration', async ({page}) => {
     const testUser = new UserTestData();
