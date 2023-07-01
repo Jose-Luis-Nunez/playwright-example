@@ -3,14 +3,16 @@ import { expect, test } from '@playwright/test';
 import PersonalDataPage from './pages/PersonalDataPage.js';
 import HomePage from "./pages/HomePage.js";
 
-test('First step of registration', async ({page}) => {
+test('First step of registration', async ({ page}) => {
     const testUser = new UserTestData();
     const personalData = new PersonalDataPage();
     const homePage = new HomePage();
 
     await page.goto(homePage.pageURL);
-    await page.locator(homePage.acceptCookies).click();
+    //await page.locator(homePage.acceptCookies).click();
     await page.locator(homePage.signUpButton).click();
+
+    await page.waitForNavigation()
 
     await page.locator(personalData.drivingLocation).selectOption('berlin');
     await page.waitForLoadState('networkidle');
@@ -31,8 +33,10 @@ test('First step of registration', async ({page}) => {
     await page.type(personalData.mobilePhoneInput, testUser.phoneNumber);
 
     const termsAndConditionsCheckbox = await page.locator(personalData.registrationCheckboxes).nth(0);
-    await termsAndConditionsCheckbox.click({force: true});
+    await termsAndConditionsCheckbox.click({ force: true });
 
-    await page.locator(personalData.registrationButton).click({waitNavigation: true});
-    await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/");
+    await Promise.all([
+        await page.locator(personalData.registrationButton).click({ waitNavigation: true }),
+        await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/"),
+    ]);
 });

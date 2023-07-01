@@ -1,4 +1,4 @@
-exports.HomePage = class HomePage {
+class HomePage {
     constructor(page) {
         this.page = page;
         this.acceptCookieButton = page.locator('[data-testid=uc-accept-all-button]');
@@ -17,3 +17,4 @@ exports.HomePage = class HomePage {
         await this.signUpButton.click();
     }
 }
+export default HomePage

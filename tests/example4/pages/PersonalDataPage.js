@@ -1,6 +1,6 @@
-import {BasePage} from "./BasePage";
+import BasePage from "./BasePage";
 
-export class PersonalDataPage extends BasePage {
+class PersonalDataPage extends BasePage {
     drivingLocation = 'select[name=drivingLocation]';
     emailInput = 'input[name=email]';
     passwordInput = 'input[name=password]';
@@ -20,6 +20,7 @@ export class PersonalDataPage extends BasePage {
     registrationButton = '#registration-save-button';
 
     async selectCityForRegistration(city) {
+        await this.page.waitForNavigation()
         await this.find(this.drivingLocation).selectOption(city)
         await this.page.waitForLoadState('networkidle');
     }
@@ -42,11 +43,12 @@ export class PersonalDataPage extends BasePage {
     }
 
     async createAccount() {
-        await this.find(this.registrationButton).click()
+        await this.find(this.registrationButton).click({ waitNavigation: true })
     }
 
     async acceptGlobalTerms() {
         const termsAndConditionsCheckbox = await this.find(this.registrationCheckboxes).nth(0);
-        await termsAndConditionsCheckbox.click({force: true});
+        await termsAndConditionsCheckbox.click({ force: true });
     }
 }
+export default PersonalDataPage;

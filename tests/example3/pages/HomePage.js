@@ -1,4 +1,4 @@
-exports.HomePage = class HomePage {
+class HomePage {
     constructor(page) {
         this.page = page;
     }
@@ -18,3 +18,4 @@ exports.HomePage = class HomePage {
         await this.signUpButton().click();
     }
 }
+export default HomePage
