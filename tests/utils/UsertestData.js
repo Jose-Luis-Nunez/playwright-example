@@ -28,4 +28,4 @@ class UserTestData {
         return Date.now()
     }
 }
-module.exports = { UserTestData };
+export default UserTestData;
