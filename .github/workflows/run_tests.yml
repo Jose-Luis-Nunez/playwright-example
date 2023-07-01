@@ -28,9 +28,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache/ms-playwright/chromium
-          key: ${{ runner.os }}-ms-playwright-chromium-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-ms-playwright-chromium
           restore-keys: |
-            ${{ runner.os }}-ms-playwright-chromium-
+            ${{ runner.os }}-ms-playwright-chromium
 
       - name: Install dependencies
         run: |
