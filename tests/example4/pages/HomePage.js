@@ -1,6 +1,6 @@
-import {BasePage} from './BasePage';
+import { BasePage } from './BasePage';
 
-export class HomePage extends BasePage {
+class HomePage extends BasePage {
 
     acceptCookieButton = '[data-testid=uc-accept-all-button]';
     signUpButton = '.primary-navbar__actions #reggie-link-register-now';
@@ -13,3 +13,4 @@ export class HomePage extends BasePage {
         await this.find(this.signUpButton).click();
     }
 }
+export default HomePage;

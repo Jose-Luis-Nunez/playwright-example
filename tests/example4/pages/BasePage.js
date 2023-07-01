@@ -1,6 +1,6 @@
-import {Page} from '@playwright/test';
+import { Page } from '@playwright/test';
 
-export class BasePage {
+class BasePage {
     page = Page;
 
     constructor(page) {
@@ -11,3 +11,4 @@ export class BasePage {
         return this.page.locator(selector);
     }
 }
+export default BasePage;
