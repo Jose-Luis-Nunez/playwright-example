@@ -12,7 +12,6 @@ test('First step of registration', async ({page}) => {
     //await page.locator(homePage.acceptCookies).click();
     await page.locator(homePage.signUpButton).click();
 
-    await page.waitForSelector(personalData.drivingLocation);
     await page.waitForNavigation()
 
     await page.locator(personalData.drivingLocation).selectOption('berlin');
