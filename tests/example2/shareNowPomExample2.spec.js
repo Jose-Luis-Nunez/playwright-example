@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
-const { PersonalDataPage } = require('./pages/PersonalDataPage');
-const { HomePage } = require('./pages/HomePage');
-const {UserTestData} = require("../utils/UsertestData");
+import PersonalDataPage from './pages/PersonalDataPage.js';
+import UserTestData from "../utils/UsertestData";
+import HomePage from "./pages/HomePage.js";
 
 test('first step of registration', async ({page}) => {
     const testUser = new UserTestData();

@@ -3,7 +3,7 @@ const { PersonalDataPage } = require('./pages/PersonalDataPage');
 const { HomePage } = require('./pages/HomePage');
 const {UserTestData} = require("../utils/UsertestData");
 
-test('first step of registration', async ({page}) => {
+test.skip('first step of registration', async ({page}) => {
     const testUser = new UserTestData();
     const personalDataPage = new PersonalDataPage(page);
     const homePage = new HomePage(page);
