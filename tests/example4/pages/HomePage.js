@@ -10,7 +10,10 @@ class HomePage extends BasePage {
     }
 
     async startRegistration() {
-        await this.find(this.signUpButton).click();
+        await Promise.all([
+            this.page.waitForNavigation(),
+            this.find(this.signUpButton).click()
+        ]);
     }
 }
 export default HomePage;
