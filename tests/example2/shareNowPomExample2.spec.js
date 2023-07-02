@@ -8,7 +8,7 @@ test('first step of registration', async ({page}) => {
     const personalDataPage = new PersonalDataPage(page);
     const homePage = new HomePage(page);
 
-    await homePage.goto('https://www.int.share-now.com/de/en/');
+    await page.goto('https://www.int.share-now.com/de/en/', { waitUntil: 'networkidle' });
     // await homePage.acceptCookies();
     await homePage.startRegistration();
 
