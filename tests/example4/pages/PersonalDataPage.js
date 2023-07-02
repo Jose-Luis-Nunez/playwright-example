@@ -20,7 +20,7 @@ class PersonalDataPage extends BasePage {
     registrationButton = '#registration-save-button';
 
     async selectCityForRegistration(city) {
-        await this.page.waitForSelector(this.drivingLocation);
+        await this.page.waitForNavigation();
         await this.find(this.drivingLocation).selectOption(city);
         await this.page.waitForLoadState('networkidle');
     }
