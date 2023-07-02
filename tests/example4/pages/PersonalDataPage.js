@@ -21,7 +21,6 @@ class PersonalDataPage extends BasePage {
 
     async selectCityForRegistration(city) {
         await this.page.waitForNavigation();
-        await this.page.waitForSelector(this.drivingLocation, { timeout: 60000 });
         await this.find(this.drivingLocation).selectOption(city);
         await this.page.waitForLoadState('networkidle');
     }
