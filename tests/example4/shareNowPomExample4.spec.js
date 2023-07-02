@@ -1,4 +1,4 @@
-const {test, expect} = require('@playwright/test');
+const { test, expect} = require('@playwright/test');
 import HomePage from "./pages/HomePage.js";
 import PersonalDataPage from './pages/PersonalDataPage.js';
 import UserTestData from "../utils/UsertestData";
@@ -8,7 +8,7 @@ test('first step of registration', async ({page}) => {
     const personalDataPage = new PersonalDataPage(page);
     const homePage = new HomePage(page);
 
-    await page.goto('https://www.int.share-now.com/de/en/');
+    await page.goto('https://www.int.share-now.com/de/en/', { waitUntil: 'networkidle' });
     // await homePage.acceptCookies();
     await homePage.startRegistration();
 
@@ -16,8 +16,6 @@ test('first step of registration', async ({page}) => {
     await personalDataPage.enterPersonalDataDetails(testUser);
     await personalDataPage.acceptGlobalTerms();
 
-    await Promise.all([
-        await personalDataPage.createAccount(),
-        await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/"),
-    ]);
+    await personalDataPage.createAccount();
+    await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/");
 });

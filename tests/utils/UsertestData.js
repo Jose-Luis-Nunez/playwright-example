@@ -17,11 +17,11 @@ class UserTestData {
     }
 
     getRandomPhoneNumber() {
-        return `${parseInt(this.getCurrentTime() / 100)}`
+        return `${ this.getCurrentTime() }${Math.floor(Math.random() * 10)}`;
     }
 
     getRandomEmail() {
-        return `josenunezumi+${this.getCurrentTime()}@gmail.rofl`
+        return `josenunezumi+${ this.getCurrentTime() }${ Math.floor(Math.random() * 1000) }@gmail.rofl`;
     }
 
     getCurrentTime() {

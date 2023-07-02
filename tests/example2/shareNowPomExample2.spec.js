@@ -8,7 +8,7 @@ test('first step of registration', async ({page}) => {
     const personalDataPage = new PersonalDataPage(page);
     const homePage = new HomePage(page);
 
-    await homePage.goto('https://www.int.share-now.com/de/en/');
+    await page.goto('https://www.int.share-now.com/de/en/', { waitUntil: 'networkidle' });
     // await homePage.acceptCookies();
     await homePage.startRegistration();
 
@@ -16,8 +16,9 @@ test('first step of registration', async ({page}) => {
     await personalDataPage.enterPersonalDataDetails(testUser);
     await personalDataPage.acceptGlobalTerms();
 
-    await Promise.all([
-        await personalDataPage.createAccount(),
-        await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/"),
-    ]);
+    await personalDataPage.createAccount();
+    await page.waitForSelector('.registration-success__content .registration-success__img');
+
+    await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/");
+
 });

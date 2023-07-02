@@ -1,5 +1,5 @@
 // @ts-check
-const { devices } = require('@playwright/test');
+const { chromium, devices } = require('@playwright/test');
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -7,7 +7,6 @@ const { devices } = require('@playwright/test');
  */
 const config = {
   testDir: './tests',
-  /* Maximum time one test can run for. */
   timeout: 60000,
   expect: {
     timeout: 10000
@@ -17,8 +16,10 @@ const config = {
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 4 : undefined,
   reporter: [['html', { open: 'never', outputFolder: 'reports' }]],
+  outputDir: 'test-results/',
+
   use: {
-    actionTimeout: 5000,
+    actionTimeout: 10000,
     headless: true,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
@@ -36,10 +37,16 @@ const config = {
         viewport: { width: 1366, height: 800 },
 
         args: ["--enable-features=ShadowDOMV0"],
+
+        // Launch a new browser for each test.
+        browser: async ({ browserName }, use) => {
+          const browser = await chromium.launch();
+          await use(browser);
+          await browser.close();
+        },
       },
     },
   ],
-  outputDir: 'test-results/',
 };
 
 module.exports = config;

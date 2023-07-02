@@ -8,8 +8,8 @@ test('First step of registration', async ({ page}) => {
     const personalData = new PersonalDataPage();
     const homePage = new HomePage();
 
-    await page.goto(homePage.pageURL);
-    //await page.locator(homePage.acceptCookies).click();
+    await page.goto(homePage.pageURL, { waitUntil: 'networkidle' });
+    // await page.locator(homePage.acceptCookies).click();
     await page.locator(homePage.signUpButton).click();
 
     await page.waitForNavigation()
@@ -35,8 +35,8 @@ test('First step of registration', async ({ page}) => {
     const termsAndConditionsCheckbox = await page.locator(personalData.registrationCheckboxes).nth(0);
     await termsAndConditionsCheckbox.click({ force: true });
 
-    await Promise.all([
-        await page.locator(personalData.registrationButton).click({ waitNavigation: true }),
-        await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/"),
-    ]);
+    await page.locator(personalData.registrationButton).click({ waitNavigation: true });
+    await page.waitForSelector('.registration-success__content .registration-success__img');
+
+    await expect(page).toHaveURL("https://www.int.share-now.com/de/en/berlin/registration/success/");
 });

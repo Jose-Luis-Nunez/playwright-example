@@ -24,13 +24,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-ms-playwright-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-ms-playwright-
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      - name: Install Playwright Chrome Browser
+        run: |
+          if [ ! -f ~/.cache/ms-playwright/chromium-*/chrome-linux/chrome ]; then
+            npx playwright install chromium
+          fi
 
-      - name: Run Playwright tests
+      - name: Run ui tests
         run: npx playwright test
 
       - uses: actions/upload-artifact@v3
@@ -40,4 +51,3 @@ jobs:
           path: |
             test-results/**/*
           retention-days: 30
-
