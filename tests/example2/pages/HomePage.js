@@ -17,4 +17,4 @@ class HomePage {
         await this.signUpButton.click();
     }
 }
-export default HomePage
+export default HomePage;

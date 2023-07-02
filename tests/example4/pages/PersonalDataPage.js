@@ -20,8 +20,8 @@ class PersonalDataPage extends BasePage {
     registrationButton = '#registration-save-button';
 
     async selectCityForRegistration(city) {
-        await this.page.waitForNavigation()
-        await this.find(this.drivingLocation).selectOption(city)
+        await this.page.waitForNavigation();
+        await this.find(this.drivingLocation).selectOption(city);
         await this.page.waitForLoadState('networkidle');
     }
 
@@ -43,7 +43,8 @@ class PersonalDataPage extends BasePage {
     }
 
     async createAccount() {
-        await this.find(this.registrationButton).click({ waitNavigation: true })
+        await this.find(this.registrationButton).click({ waitNavigation: true });
+        await this.page.waitForSelector('.registration-success__content .registration-success__img');
     }
 
     async acceptGlobalTerms() {

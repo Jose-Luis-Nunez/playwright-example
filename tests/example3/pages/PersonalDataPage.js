@@ -22,30 +22,31 @@ class PersonalDataPage {
     registrationButton = () => this.page.locator('#registration-save-button');
 
     async selectCityForRegistration(city) {
-        await this.page.waitForNavigation()
-        await this.drivingLocation().selectOption(city)
+        await this.page.waitForNavigation();
+        await this.drivingLocation().selectOption(city);
         await this.page.waitForLoadState('networkidle');
     }
 
     async enterPersonalDataDetails(testUser) {
         await this.emailInput().fill(testUser.email);
-        await this.passwordInput().fill(testUser.password)
+        await this.passwordInput().fill(testUser.password);
         await this.pinInput().fill(testUser.pin)
         await this.salutationInput().selectOption({label: testUser.salutation});
-        await this.firstNameInput().type(testUser.firstName)
-        await this.lastNameInput().type(testUser.lastName)
+        await this.firstNameInput().type(testUser.firstName);
+        await this.lastNameInput().type(testUser.lastName);
         await this.birthDayInput().selectOption(testUser.dayOfBirthday);
-        await this.birthMonthInput().selectOption(testUser.monthOfBirthday)
+        await this.birthMonthInput().selectOption(testUser.monthOfBirthday);
         await this.birthYearInput().selectOption(testUser.yearOfBirthday);
         await this.birthPlaceInput().type(testUser.birthPlace);
-        await this.addressStreetInput().type(testUser.addressStreet)
-        await this.addressZipcodeInput().type(testUser.zipCode)
-        await this.addressCityInput().type(testUser.city)
-        await this.mobilePhoneInput().type(testUser.phoneNumber)
+        await this.addressStreetInput().type(testUser.addressStreet);
+        await this.addressZipcodeInput().type(testUser.zipCode);
+        await this.addressCityInput().type(testUser.city);
+        await this.mobilePhoneInput().type(testUser.phoneNumber);
     }
 
     async createAccount() {
-        await this.registrationButton().click({ waitNavigation: true })
+        await this.registrationButton().click({ waitNavigation: true });
+        await this.page.waitForSelector('.registration-success__content .registration-success__img');
     }
 
     async acceptGlobalTerms() {
