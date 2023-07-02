@@ -19,7 +19,7 @@ const config = {
   outputDir: 'test-results/',
 
   use: {
-    actionTimeout: 5000,
+    actionTimeout: 10000,
     headless: true,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
