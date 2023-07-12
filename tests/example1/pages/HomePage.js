@@ -4,4 +4,4 @@ class HomePage {
     signUpButton = '.primary-navbar__actions #reggie-link-register-now';
 }
 
-export default HomePage
+export default HomePage;
