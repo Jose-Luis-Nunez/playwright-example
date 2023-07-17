@@ -41,7 +41,7 @@ jobs:
             npx playwright install chromium
           fi
 
-      - name: Run ui tests
+      - name: Run UI tests
         run: npx playwright test
 
       - uses: actions/upload-artifact@v3
