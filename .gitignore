@@ -23,3 +23,8 @@ node_modules
 /build
 *.tgz
 *.tar
+
+#files
+*.webm
+*.png
+*.html
